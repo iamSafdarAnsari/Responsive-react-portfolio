@@ -1,0 +1,142 @@
+@import "../../vars.css";
+
+/* Navbar Container */
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 50px;
+  margin: 0 10%;
+  z-index: 10;
+}
+
+/* Logo Styling */
+.logo {
+  width: 60px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Title Styling */
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff7eb3, #ff758c, #ff7eb3);
+  text-decoration: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(255, 117, 140, 0.4);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.title:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255, 117, 140, 0.6);
+}
+
+/* Menu Wrapper */
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+/* Menu Button (Hamburger/Close Icon) */
+.menuBtn {
+  display: none;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menuBtn:hover {
+  transform: scale(1.1);
+}
+
+/* Menu Items */
+.menuItems {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.menuItems a {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Unique Hover Effect */
+.menuItems a::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+.menuItems a:hover::after {
+  width: 100%;
+}
+
+.menuItems a:hover {
+  color: var(--color-primary);
+}
+
+/* Responsive Navbar */
+@media screen and (max-width: 830px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu {
+    position: absolute;
+    top: 50px;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .menuBtn {
+    display: block;
+  }
+
+  .menuItems {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: rgba(25, 55, 109, 0.9);
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .menuOpen {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
