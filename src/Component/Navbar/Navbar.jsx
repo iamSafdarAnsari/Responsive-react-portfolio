@@ -7,15 +7,18 @@ export const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
+      <div className={styles.company}>
       <img
         src={getImageUrl("logo.png")}
         className="logo"
         alt="My Local Image"
       />
-      
-      <a className={styles.title}  href="/" aria-label="Home">
+
+      <a className={styles.title} href="/" aria-label="Home">
         Saf WebWorks
       </a>
+      </div>
+     
       <div className={styles.menu}>
         <img
           className={styles.menuBtn}
